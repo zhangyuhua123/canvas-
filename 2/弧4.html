@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>666</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      overflow: hidden;
+    }
+    body{
+      background: #000;
+      /*text-align: center;*/
+    }
+    canvas{
+      background: #fff;
+      /*width:800px;
+      hegiht:400px;*/
+    }
+    span{
+      color:#fff;
+    }
+  </style>
+
+  <script>
+    function rnd(n,m){
+      return parseInt(Math.random()*(m-n))+n;
+    }
+    function d2a(n){ //角转弧
+      return n*Math.PI/180;
+      // 2PI = 360
+      //1* PI=180
+      // 1= PI/180
+      // n* PI/180
+    }
+    function a2d(n){//弧转角度
+      return n*180/Math.PI;
+    }
+    window.onload = function () {
+      var oC=document.getElementById('c1');
+      var gd=oC.getContext('2d');
+
+      var color=`rgba(${rnd(0,256)},${rnd(0,256)},${rnd(0,256)},1)`;
+      gd.lineWidth=10;
+
+      var d=0;
+
+      setInterval(function(){
+        gd.clearRect(0,0,oC.width,oC.height);
+        gd.strokeStyle=color;
+        gd.beginPath();
+        gd.arc(200,200,100,d2a(0),d2a(d+=3));
+        gd.stroke();
+
+        if(d>=360){
+          d=0;
+          color=`rgba(${rnd(0,256)},${rnd(0,256)},${rnd(0,256)},1)`;
+        }
+
+      },16);
+    };
+  </script>
+</head>
+<body>
+
+<canvas  id="c1" width="800" height="400">
+  <span>您的浏览器版本太低</span>
+</canvas>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+canvas
+	干嘛的: 画图的
+	使用场景：图表（echarts），效果（数学），游戏(小) OOP
+
+	特点：标签,透明，绘制需要js做
+
+	画笔对象： 所有的绘画属性、方法都在画笔上
+		o2d / gd  = canvas.getContent('2d')
+	绘画思维:  拿着画笔，运动到绘画位置->连线(路径) 。。。->描边|填充
+		代码流程
+			配置画笔:	设置填充，描边的颜色
+			新路径	beginPath
+			画图    moveTo/lineTo/storkeRect/fillRect
+			闭合路径 （可选）closePath
+			填充,描边	fill/storke
+
+	画路径:  一定要描边，才看的到
+
+		gd.moveTo(x,y)  移动
+		gd.lineTo(x,y)  连线
+
+		gd.stroke()  描边			gd.lineWidth=值 边粗细 （双向扩展）
+		gd.strokeStyle=颜色   
+
+		gd.fill() 填充
+		gd.fillStyle 填充色
+
+		gd.closePath() 自动闭合路径
+
+		注意：canvas 的宽高需要在标签里面设置属性  
+
+		gd.beginPath()  新路径
+
+		弧：
+			gd/o2d.arc(cx,cy,半径,起始弧，结束弧,是否逆时针)
+			用角度：d2a :  n*Math.PI/180;		a2d:n*180/Math.PI;
+			是个路径， 0度在右侧
+			是否逆时针： true/false  默认顺时针
+
+	画图形:	图形有可能包含路径
+		矩形：	gd.storkeRect(x,y,w,h) 描边
+				gd.fillRect(x,y,w,h) 填充
+		文字:
+			gd.strokeText(string,x,y)  描边文字
+			gd.fillText(string,x,y)  描边文字
+				gd.font='大小 字体';		字体必填
+			对齐方式:  默认文本基线	 相对 x,y坐标
+				水平：left|center|right
+				垂直：top|middle|bottom
+			文字宽度:	gd.measureText('文字').width  受font影响，默认是12中/6.x英文
+			
+
+
+
+
+
+运动：
+	频繁的擦除了再绘制
+	擦除画布： gd.clearRect(x,y,w,h);
+
+
+
+
+
+
+

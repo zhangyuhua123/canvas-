@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>666</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      overflow: hidden;
+    }
+    body{
+      background: #000;
+      /*text-align: center;*/
+    }
+    canvas{
+      background: #fff;
+      /*width:800px;
+      hegiht:400px;*/
+    }
+    span{
+      color:#fff;
+    }
+  </style>
+
+  <script>
+    function rnd(n,m){
+      return parseInt(Math.random()*(m-n))+n;
+    }
+    function d2a(n){ //角转弧
+      return n*Math.PI/180;
+    }
+    function a2d(n){//弧转角度
+      return n*180/Math.PI;
+    }
+    window.onload = function () {
+      var oC=document.getElementById('c1');
+      var gd=oC.getContext('2d');
+
+
+      //1.
+      gd.beginPath();
+      gd.moveTo(100,0);
+      gd.lineTo(100,oC.height);
+      gd.stroke();
+
+      //2.
+      gd.beginPath();
+      gd.moveTo(0,100);
+      gd.lineTo(oC.width,100);
+      gd.stroke();
+
+      gd.font='100px 黑体';
+
+//      gd.textBaseline='bottom';
+//      gd.textBaseline='middle';
+//      gd.textBaseline='top';
+
+      gd.textAlign='left';  //默认
+//      gd.textAlign='center';  //
+//      gd.textAlign='right';  //默认
+
+      gd.fillText('九叔',100,100);
+
+
+    };
+  </script>
+</head>
+<body>
+
+<canvas  id="c1" width="800" height="400">
+  <span>您的浏览器版本太低</span>
+</canvas>
+
+</body>
+</html>

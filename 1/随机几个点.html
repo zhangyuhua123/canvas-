@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>666</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 微软雅黑;
+    }
+    body{
+      background: #000;
+      /*text-align: center;*/
+    }
+    canvas{
+      background: #fff;
+      /*width: 800px;
+      height: 400px;*/
+    }
+    span{
+      color:#fff;
+    }
+  </style>
+
+  <script>
+    function rnd(n,m){
+      return parseInt(Math.random()*(m-n))+n;
+    }
+
+    window.onload = function () {
+      var oC=document.getElementById('c1');
+      var gd = oC.getContext('2d');//画笔对象
+
+      var N=5; //点数
+      var aPos=[]; //[{x:..,y:..},{},{}] 图形坐标数据
+
+      for(var i=0; i< N; i++){//存随机坐标
+        aPos[i]={
+          x:rnd(0,oC.width),
+          y:rnd(0,oC.height)
+        };
+      }
+
+      //绘制
+      gd.beginPath();
+      gd.moveTo(aPos[0].x,aPos[0].y);
+
+      for(var i=1; i<aPos.length; i++){
+        gd.lineTo(aPos[i].x,aPos[i].y);
+      }
+      gd.closePath();
+      gd.stroke();
+
+    };
+  </script>
+</head>
+<body>
+
+<canvas id="c1" width="800" height="400">
+  <span>浏览器版本太低</span>
+</canvas>
+
+
+
+</body>
+</html>

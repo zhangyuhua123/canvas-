@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>666</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      overflow: hidden;
+    }
+    body{
+      background: #000;
+      /*text-align: center;*/
+    }
+    canvas{
+      background: #fff;
+      /*width:800px;
+      hegiht:400px;*/
+    }
+    span{
+      color:#fff;
+    }
+  </style>
+
+  <script>
+    function rnd(n,m){
+      return parseInt(Math.random()*(m-n))+n;
+    }
+    function d2a(n){ //角转弧
+      return n*Math.PI/180;
+    }
+    function a2d(n){//弧转角度
+      return n*180/Math.PI;
+    }
+    window.onload = function () {
+      var oC=document.getElementById('c1');
+      var gd=oC.getContext('2d');
+
+      var x=200,y=200,w=200,h=100;
+      gd.fillStyle='red';
+      gd.fillRect(x,y,w,h);
+
+      oC.onmousedown=function(ev){
+        if(ev.clientX>x&&ev.clientX<x+w&&ev.clientY>y&&ev.clientY<y+h){
+//          alert(1);
+          //重绘制
+          var disX=ev.clientX-x;
+          var disY=ev.clientY-y;
+          oC.onmousemove=function(ev){
+            gd.clearRect(0,0,oC.width,oC.height);
+
+            x=ev.clientX-disX;
+            y=ev.clientY-disY;
+            gd.fillRect(x,y,w,h);
+          };
+          oC.onmouseup=function(){
+            oC.onmousemove=null;
+            oC.onmouseup=null;
+          };
+          return false;
+
+        }
+      };
+
+
+    };
+  </script>
+</head>
+<body>
+
+<canvas  id="c1" width="800" height="400">
+  <span>您的浏览器版本太低</span>
+</canvas>
+
+</body>
+</html>

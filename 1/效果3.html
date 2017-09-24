@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>666</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 微软雅黑;
+    }
+    body,html{
+      background: #fff;
+      overflow: hidden;
+      /*text-align: center;*/
+    }
+    canvas{
+      background: #000
+    }
+    span{
+      color:#fff;
+    }
+  </style>
+
+  <script>
+    function rnd(n,m){
+      return parseInt(Math.random()*(m-n))+n;
+    }
+
+    window.onload = function () {
+      var oC=document.getElementById('c1');
+      var gd = oC.getContext('2d');//画笔对象
+
+      //1. 设置canvas宽高
+      var cW=document.documentElement.clientWidth;
+      var cH=document.documentElement.clientHeight;
+      oC.width=cW;
+      oC.height=cH;
+
+      //随机几个点
+      var N=5;
+      var aPoint=[]; //[{x,y,iSpeedX,iSpeedY},{},{}]
+      for(var i=0; i<N; i++){
+        aPoint[i]={
+          x:rnd(0,cW),
+          y:rnd(0,cH),
+          iSpeedX:rnd(-2,2),
+          iSpeedY:rnd(-2,2),
+        };
+      }
+      setInterval(function() {
+        //擦除画布
+        gd.clearRect(0,0,cW,cH)
+        for (var i = 0; i < N; i++) {
+          //设定点的位置
+          aPoint[i].x+=aPoint[i].iSpeedX;
+          aPoint[i].y+=aPoint[i].iSpeedY;
+
+          //绘制之前限定
+          if(aPoint[i].x<=0){
+            aPoint[i].x=0;
+            aPoint[i].iSpeedX*=-1;
+          }
+          if(aPoint[i].x>=cW){
+            aPoint[i].x=cW;
+            aPoint[i].iSpeedX*=-1;
+          }
+          if(aPoint[i].y<=0){
+            aPoint[i].y=0;
+            aPoint[i].iSpeedY*=-1;
+          }
+          if(aPoint[i].y>=cH){
+            aPoint[i].y=cH;
+            aPoint[i].iSpeedY*=-1;
+          }
+          drawPoint(aPoint[i]);
+        }
+      },16);
+
+
+      function drawPoint(p){
+        var pW=10;
+        var pH=10;
+        gd.fillStyle='#fff';
+        gd.fillRect(p.x-pW/2,p.y-pH/2,pW,pH);
+      }
+
+      
+
+    };
+  </script>
+</head>
+<body>
+
+<canvas id="c1" width="800" height="400">
+  <span>浏览器版本太低</span>
+</canvas>
+
+
+
+</body>
+</html>

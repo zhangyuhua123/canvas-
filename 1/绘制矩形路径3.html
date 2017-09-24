@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>666</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 微软雅黑;
+    }
+    body{
+      background: #000;
+      /*text-align: center;*/
+    }
+    canvas{
+      background: #fff;
+      /*width: 800px;
+      height: 400px;*/
+    }
+    span{
+      color:#fff;
+    }
+  </style>
+
+  <script>
+    function rnd(n,m){
+      return parseInt(Math.random()*(m-n))+n;
+    }
+
+    window.onload = function () {
+      var oC=document.getElementById('c1');
+      var gd = oC.getContext('2d');//画笔对象
+
+//      gd.strokeRect(x,y,w,h)
+      gd.strokeStyle='green';
+      gd.lineWidth=10;
+      gd.strokeRect(100,100,100,100);//是个图形
+//      gd.strokeRect(210,210,100,100);
+
+      gd.fillStyle='red';
+      gd.fillRect(100,100,100,100);
+
+
+     // gd.fill();//填充是给路径
+
+
+    };
+  </script>
+</head>
+<body>
+
+<canvas id="c1" width="800" height="400">
+  <span>浏览器版本太低</span>
+</canvas>
+
+
+
+</body>
+</html>

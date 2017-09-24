@@ -1,0 +1,58 @@
+﻿1 首先我要思考我要绘制一个什么样的轮廓，大脑要飞速运转一下，
+2 我要从那边着手绘画， 到一下个点我要连线，那看不见怎么办？我们要
+描边，描边可以有粗细 ，结合ps，绘制前先把准备工具准备好
+
+
+画笔     连线  描边  填充、
+绘制需要Js配合
+
+对象
+画笔 在oc 的头像上画还你
+canvas.getContent('2d)===gd;
+gd.moveTo(x,y)移动
+gd.lineto(x,y)连线
+gd.stroke()描边
+
+画之前修改颜色
+gd.strokeStyle=raba() ;
+
+填充
+gd.fill()
+
+gd.fillStyle = 'red
+
+描边设定粗细
+gd.linewith=20;  会出现一个缺口，怎么办呢？使用gd.closepath
+||<>双向扩展
+
+
+随机几个点
+gd.beginPath();
+gd.moveTo();
+gd.lineto();
+gd.closePath;
+gd.stroke();
+
+矩行gd.moveTo -gd.lineTo()-gd.lineTo|_|-gd.closePath - gd.stroke
+gd.stroleRect(x,y,w,h) 绘制前调好色调
+
+素描才可以填充， 图形怎么有颜色，填充是给描边填充的
+矩形填充 gd.fillRect(x,y,w,h)
+
+动画
+怎么让他动
+setInterval（fn.1000）
+擦除路径
+gd.cleaeReact(x,y,w,h)
+运动
+
+擦除了再绘制
+擦除画布 gd.clearRect(x,y,w,h);
+
+效果
+随机几个点的爆炸效果
+设置canvas的宽高
+
+
+
+

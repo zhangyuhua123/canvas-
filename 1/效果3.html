@@ -29,17 +29,14 @@
     function rnd(n,m){
       return parseInt(Math.random()*(m-n))+n;
     }
-
     window.onload = function () {
       var oC=document.getElementById('c1');
       var gd = oC.getContext('2d');//画笔对象
-
       //1. 设置canvas宽高
       var cW=document.documentElement.clientWidth;
       var cH=document.documentElement.clientHeight;
       oC.width=cW;
       oC.height=cH;
-
       //随机几个点
       var N=5;
       var aPoint=[]; //[{x,y,iSpeedX,iSpeedY},{},{}]
@@ -79,17 +76,12 @@
           drawPoint(aPoint[i]);
         }
       },16);
-
-
       function drawPoint(p){
         var pW=10;
         var pH=10;
         gd.fillStyle='#fff';
         gd.fillRect(p.x-pW/2,p.y-pH/2,pW,pH);
       }
-
-      
-
     };
   </script>
 </head>

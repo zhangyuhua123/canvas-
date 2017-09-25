@@ -1,4 +1,4 @@
-﻿1 首先我要思考我要绘制一个什么样的轮廓，大脑要飞速运转一下，
+1 首先我要思考我要绘制一个什么样的轮廓，大脑要飞速运转一下，
 2 我要从那边着手绘画， 到一下个点我要连线，那看不见怎么办？我们要
 描边，描边可以有粗细 ，结合ps，绘制前先把准备工具准备好
 
@@ -52,6 +52,20 @@ gd.cleaeReact(x,y,w,h)
 效果
 随机几个点的爆炸效果
 设置canvas的宽高
+
+function rnd(n,m){
+      return parseInt(Math.random()*(m-n))+n;
+    }
+    window.onload = function () {
+      var oC=document.getElementById('c1');
+      var gd = oC.getContext('2d');//画笔对象
+      var x=100;
+//      gd.clearRect(x,y,w,h)//擦除一个区域
+      setInterval(function(){
+        gd.clearRect(0,0,oC.width,oC.height);//擦除整个画布
+        gd.strokeRect(x++,100,200,100);
+      },16);  //  60fps   1000/60   16-17ms
+    };
 
 
 
